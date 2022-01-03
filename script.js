@@ -24,14 +24,23 @@ function startGame(){
         }
     },1000)
 
+    //Pick random word from words Array
     var currentWord = words[Math.floor(Math.random()*words.length)];
-    console.log(currentWord);
     var wordSplit = currentWord.split("");
-    console.log(wordSplit);
 
-    var wordHidden;
-    
+    var wordHidden = "";
+    for (let i = 0 ; i <wordSplit.length ; i++){
+        wordHidden += "_ ";
+    }
+
+    wordEl.textContent = wordHidden;
+
+
 
 }
 
+function keydownAction(event){
+    var input = event.key;
+}
+document.addEventListener("keydown", keydownAction);
 startEl.addEventListener("click",startGame);
